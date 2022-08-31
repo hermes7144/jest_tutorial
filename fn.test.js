@@ -1,24 +1,21 @@
-const fn = require('./fn');
+// mock function
+const mockFn = jest.fn((num) => num + 1);
 
-let num = 0;
+mockFn(10);
+mockFn(20);
+mockFn(30);
 
-test('0 더하기 1은 1', () => {
-  expect(fn.add(num, 1)).toBe(1);
+test('10에서 1 증가한 값이 반환된다', () => {
+  console.log(mockFn.mock.results);
+  expect(mockFn.mock.results[0].value).toBe(11);
 });
 
-test('0 더하기 2은 2', () => {
-  expect(fn.add(num, 2)).toBe(2);
+test('20에서 1 증가한 값이 반환된다', () => {
+  console.log(mockFn.mock.results);
+  expect(mockFn.mock.results[1].value).toBe(21);
 });
 
-test('0 더하기 3은 3', () => {
-  expect(fn.add(num, 3)).toBe(3);
-});
-
-test.skip('0 더하기 4은 4', () => {
-  expect(fn.add(num, 4)).toBe(4);
-  num = 10;
-});
-
-test('0 더하기 5은 5', () => {
-  expect(fn.add(num, 5)).toBe(5);
+test('10에서 1 증가한 값이 반환된다', () => {
+  console.log(mockFn.mock.results);
+  expect(mockFn.mock.results[2].value).toBe(31);
 });
